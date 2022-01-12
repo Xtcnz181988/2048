@@ -1,2 +1,1 @@
-# xtcnz181988-JSFEPRESCHOOL
-Private repository for @xtcnz181988
+https://rolling-scopes-school.github.io/xtcnz181988-JSFEPRESCHOOL/portfolio/
