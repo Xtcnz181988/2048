@@ -1,0 +1,28 @@
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    background-color: #f26739;
+    font-family: 'Montserrat';
+    color: #ffffff;
+}
+
+.container {
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+html::-webkit-scrollbar {
+	-webkit-appearance: none;
+	width: 10px;
+}
+
+html::-webkit-scrollbar-thumb {
+	border-radius: 2px;
+	background-color: #292c33;
+}
+
+.container--body {
+    background-color: #f26739;
+}
