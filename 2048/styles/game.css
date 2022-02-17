@@ -1,0 +1,27 @@
+.wrapper-game {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.field {
+    height: 320px;
+    width: 320px;
+    background-color: #292c33;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.cell {
+    height: 80px;
+    width: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #f26739;
+    font-family: 'WorkSans-SemiBold';
+    font-size: 25px;
+    color: #f26739;
+}

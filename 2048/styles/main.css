@@ -4,7 +4,7 @@ body {
     justify-content: space-between;
     flex-direction: column;
     background-color: #f26739;
-    font-family: 'Montserrat';
+    font-family: 'WorkSans-SemiBold';
     color: #ffffff;
 }
 
@@ -26,3 +26,4 @@ html::-webkit-scrollbar-thumb {
 .container--body {
     background-color: #f26739;
 }
+
