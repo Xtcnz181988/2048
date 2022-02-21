@@ -2,6 +2,26 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+    animation: wrapperGame 1.0s ease-out;
+}
+
+@keyframes wrapperGame {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.score {
+    width: 320px;
+    padding-left: 10px;
+    margin-bottom: 10px;
+    font-family: 'WorkSans-SemiBold';
+    color: #292c33;
+    font-size: 20px;
 }
 
 .field {
@@ -23,5 +43,41 @@
     border: 2px solid #f26739;
     font-family: 'WorkSans-SemiBold';
     font-size: 25px;
-    color: #f26739;
+    color: white;
+}
+
+.menu-game-window {
+    position: relative;
+    width: 320px;
+    height: 320px;
+    background-color: #f26739;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.wrapper-text-result {
+    width: 100%;
+    height: 20%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+}
+
+.text-result {
+    font-family: 'WorkSans-SemiBold';
+    font-size: 25px;
+    color: white;
+}
+
+.wrapper-btn-results {
+    width: 100%;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 30px;
 }

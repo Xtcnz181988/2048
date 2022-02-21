@@ -1,0 +1,36 @@
+.wrapper-table {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 40px;
+    gap: 25px;
+    animation: wrapperTable 1.0s ease-out;
+}
+
+@keyframes wrapperTable {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.table {
+    width: 80%;
+    table-layout: fixed;
+    border-collapse: collapse;
+    border: 2px solid #292c33;
+}
+
+td, th{
+    border: 2px solid #292c33;
+    font-family: 'WorkSans-SemiBold';
+    color: #292c33;
+    font-size: 18px;
+}
+
+th:nth-child(1) {
+    width: 20%;
+}

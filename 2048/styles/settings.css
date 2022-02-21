@@ -1,0 +1,50 @@
+.wrapper-setting-menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: wrapperSettingMenu 1.0s ease-out;
+}
+
+@keyframes wrapperSettingMenu {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.settings-menu {
+    width: 320px;
+    height: 400px;
+    background-color: #292c33;;
+}
+
+.wrapper-sound {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    flex-direction: column;
+}
+
+.wrapper-btn-back-menu {
+    width: 100%;
+    height: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    margin-top: 30px;
+}
+
+.sound-text {
+    font-family: 'WorkSans-SemiBold';
+    font-size: 20px;
+}
+
+.wrapper-btn-sounds {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+}
