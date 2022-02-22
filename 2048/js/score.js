@@ -7,7 +7,6 @@ const containerMain = document.querySelector('.container-main');
 function createScorePage () {
 
     const data = JSON.parse(localStorage.getItem('dataSetting'));
-    console.log(data);
     containerMain.parentNode.style.marginBottom = 'auto';
 
     const wrapperTable = document.createElement ('div');
@@ -52,7 +51,7 @@ function createScorePage () {
     ScoreColumn.classList.add('th');
     ScoreColumn.innerText = 'Score';
     rowHead.append(ScoreColumn);
-    // console.log(data)
+    console.log(data.results)
     // if(data.results.length > 0) {
     //     data.results.forEach((el, ind) => {
     //         const rowHead = document.createElement('tr');
