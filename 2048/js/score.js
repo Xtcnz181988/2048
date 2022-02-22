@@ -52,28 +52,31 @@ function createScorePage () {
     ScoreColumn.classList.add('th');
     ScoreColumn.innerText = 'Score';
     rowHead.append(ScoreColumn);
-    
-    data.results.forEach((el, ind) => {
-        const rowHead = document.createElement('tr');
-        rowHead.classList.add('tr')
-        tbody.append(rowHead);
-    
-        const numberColumn = document.createElement('th');
-        numberColumn.classList.add('th')
-        numberColumn.innerText = `${ind + 1}`;
-        rowHead.append(numberColumn);
+    console.log(data)
+    if(data.results.length > 0) {
+        data.results.forEach((el, ind) => {
+            const rowHead = document.createElement('tr');
+            rowHead.classList.add('tr')
+            tbody.append(rowHead);
         
-        const NickNameColumn = document.createElement('th');
-        NickNameColumn.classList.add('th')
-        NickNameColumn.innerText = `${el[0]}`;
-        rowHead.append(NickNameColumn);
-
-        const ScoreColumn = document.createElement('th');
-        ScoreColumn.classList.add('th');
-        ScoreColumn.innerText = `${el[1]}`;
-        rowHead.append(ScoreColumn);
-
-    });
+            const numberColumn = document.createElement('th');
+            numberColumn.classList.add('th')
+            numberColumn.innerText = `${ind + 1}`;
+            rowHead.append(numberColumn);
+            
+            const NickNameColumn = document.createElement('th');
+            NickNameColumn.classList.add('th')
+            NickNameColumn.innerText = `${el[0]}`;
+            rowHead.append(NickNameColumn);
+    
+            const ScoreColumn = document.createElement('th');
+            ScoreColumn.classList.add('th');
+            ScoreColumn.innerText = `${el[1]}`;
+            rowHead.append(ScoreColumn);
+    
+        });
+    }
+    
 
     wrapperTable.addEventListener('click', (event) => {
         if (event.target.innerText === 'Reset score') {
