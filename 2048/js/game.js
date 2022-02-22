@@ -393,7 +393,6 @@ function randomNumber () {
     } else {
         randomNumber ();
     }
-    // color ()
 }
 
 //Sum elements in row
@@ -549,13 +548,22 @@ function showResultLose () {
 function checkForLose () {  
 
     let i = 0;
-    let r = 0;
-    let c = 0;
+    let gameOver = true;
     field.forEach((el) => {
     if (el.innerText != 0) {
         i++;
     }
-    if (i === 16) {
+    for (let i = 0; i < 15; i++) {
+        if ((i % 4 != 3) && field[i].innerText === field[i+1].innerText) {
+            gameOver = false;
+        }
+    }
+    for (let i = 0; i < 12; i++) {
+        if (field[i].innerText === field[i+4].innerText) {
+            gameOver = false;
+        }
+    }
+    if (i === 16 && gameOver) {
         showResultLose ()
         document.removeEventListener('keydown', moveGame);
     }

@@ -52,8 +52,9 @@ function createScorePage () {
     ScoreColumn.classList.add('th');
     ScoreColumn.innerText = 'Score';
     rowHead.append(ScoreColumn);
-    console.log(data)
+
     data.results.forEach((el, ind) => {
+        console.log(data)
         const rowHead = document.createElement('tr');
         rowHead.classList.add('tr')
         tbody.append(rowHead);

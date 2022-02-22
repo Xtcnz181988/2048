@@ -22,7 +22,6 @@ window.onload = () => {
     addAudioClickButton ();
     addMusic ();
     createBtnMenu ();
-    console.log(data)
 }
 
 
