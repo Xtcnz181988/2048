@@ -18,6 +18,7 @@ window.onload = () => {
         localStorage.setItem('dataSetting', data)
     }
 
+
     addAudioClickButton ();
     addMusic ();
     createBtnMenu ();

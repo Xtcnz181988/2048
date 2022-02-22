@@ -7,7 +7,7 @@ const containerMain = document.querySelector('.container-main');
 function createScorePage () {
 
     const data = JSON.parse(localStorage.getItem('dataSetting'));
-
+    console.log(data);
     containerMain.parentNode.style.marginBottom = 'auto';
 
     const wrapperTable = document.createElement ('div');
@@ -52,30 +52,30 @@ function createScorePage () {
     ScoreColumn.classList.add('th');
     ScoreColumn.innerText = 'Score';
     rowHead.append(ScoreColumn);
-    console.log(data)
-    if(data.results.length > 0) {
-        data.results.forEach((el, ind) => {
-            const rowHead = document.createElement('tr');
-            rowHead.classList.add('tr')
-            tbody.append(rowHead);
+    // console.log(data)
+    // if(data.results.length > 0) {
+    //     data.results.forEach((el, ind) => {
+    //         const rowHead = document.createElement('tr');
+    //         rowHead.classList.add('tr')
+    //         tbody.append(rowHead);
         
-            const numberColumn = document.createElement('th');
-            numberColumn.classList.add('th')
-            numberColumn.innerText = `${ind + 1}`;
-            rowHead.append(numberColumn);
+    //         const numberColumn = document.createElement('th');
+    //         numberColumn.classList.add('th')
+    //         numberColumn.innerText = `${ind + 1}`;
+    //         rowHead.append(numberColumn);
             
-            const NickNameColumn = document.createElement('th');
-            NickNameColumn.classList.add('th')
-            NickNameColumn.innerText = `${el[0]}`;
-            rowHead.append(NickNameColumn);
+    //         const NickNameColumn = document.createElement('th');
+    //         NickNameColumn.classList.add('th')
+    //         NickNameColumn.innerText = `${el[0]}`;
+    //         rowHead.append(NickNameColumn);
     
-            const ScoreColumn = document.createElement('th');
-            ScoreColumn.classList.add('th');
-            ScoreColumn.innerText = `${el[1]}`;
-            rowHead.append(ScoreColumn);
+    //         const ScoreColumn = document.createElement('th');
+    //         ScoreColumn.classList.add('th');
+    //         ScoreColumn.innerText = `${el[1]}`;
+    //         rowHead.append(ScoreColumn);
     
-        });
-    }
+    //     });
+    // }
     
 
     wrapperTable.addEventListener('click', (event) => {
