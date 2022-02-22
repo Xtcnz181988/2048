@@ -1,4 +1,6 @@
 import { playAudioClick } from './settings.js';
+import { createScorePage } from './score.js';
+const containerMain = document.querySelector('.container-main');
 function modalWindow () {
 
     const modalWrapper = document.createElement('div');
@@ -33,12 +35,19 @@ function modalWindow () {
     btnYes.style.width = '150px'
     btnYes.innerText = 'Yes';
     answerButtonsWrapper.append(btnYes);
-
+    
     answerButtonsWrapper.addEventListener('click', (event) => {
         if (event.target.innerText === 'No') {
             document.body.removeChild(modalWrapper);
         } else if (event.target.innerText === 'Yes') {
+            const data = JSON.parse(localStorage.getItem('dataSetting'));
+            data.results.forEach((ind) => {
+                data.results.splice(ind);
+            })
+            localStorage.setItem('dataSetting', JSON.stringify(data));
             document.body.removeChild(modalWrapper);
+            containerMain.removeChild(containerMain.childNodes[0]);
+            createScorePage ();
         }
     })
 

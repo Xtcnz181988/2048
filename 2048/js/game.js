@@ -4,7 +4,7 @@ import { removeBtnMenu, createBtnMenu  } from './menu.js'
 
 const containerMain = document.querySelector('.container-main')
 let field = [];
-let record = 100;                                                     //ПОДВЯЗАТЬ РЕКОРД
+let record;
 let score = 0;
 let nickName;
 /////////////////////////////////////////////////////
@@ -90,29 +90,30 @@ containerMain.addEventListener('input', () => {
     }
 })
 
-
-
-
-
-
-
-
-
-
-
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 function gameStart () {
 
+    score = 0;
+    
     const wrapperGame = document.createElement('div');
     wrapperGame.classList.add('wrapper-game');
     containerMain.append(wrapperGame);
 
-    // const recordScore = document.createElement('div');
-    // recordScore.classList.add('score');
-    // recordScore.id = 'record';
-    // recordScore.innerText = `Record: ${record}`
-    // wrapperGame.append(recordScore);
+    const recordScore = document.createElement('div');
+    recordScore.classList.add('score');
+    recordScore.id = 'record';
+
+    const data = JSON.parse(localStorage.getItem('dataSetting')).results;
+    let maxarr = []
+    if (data.length === 0) {
+        record = score;
+    } else {
+        data.forEach((el) => {
+            maxarr.push(el[1])
+        })
+        record = Math.max.apply(null, maxarr);
+    }
+    recordScore.innerText = `Record: ${record}`
+    wrapperGame.append(recordScore);
 
     const yourScore = document.createElement('div');
     yourScore.classList.add('score');
@@ -402,12 +403,19 @@ function sumElementsRow () {
             let sum = parseInt(field[i].innerText) + parseInt(field[i+1].innerText);
             if (!isNaN(sum)) {
                 score += sum;
+                if (record > score) {
+                    record = record;
+                } else {
+                    record = score;
+                }
                 if (sum === 2048) {
                     showResultWin ();
                 }
             }
             let scoreText = document.getElementById('score');
             scoreText.innerText = `Your score: ${score}`
+            let recordScore = document.getElementById('record');
+            recordScore.innerText = `Record: ${record}`
             field[i].innerText = sum;
             field[i+1].innerText = '';
             
@@ -422,12 +430,19 @@ function sumElementsCol () {
             let sum = parseInt(field[i].innerText) + parseInt(field[i+4].innerText);
             if (!isNaN(sum)) {
                 score += sum;
+                if (record > score) {
+                    record = record;
+                } else {
+                    record = score;
+                }
                 if (sum === 2048) {
                     showResultWin ();
                 }
             }
             let scoreText = document.getElementById('score');
             scoreText.innerText = `Your score: ${score}`
+            let recordScore = document.getElementById('record');
+            recordScore.innerText = `Record: ${record}`
             field[i].innerText = sum;
             field[i+4].innerText = '';
         }
@@ -515,19 +530,21 @@ function showResultLose () {
 
     const data = JSON.parse(localStorage.getItem('dataSetting'));
 
-    let x = data.try + 1;
-    if (data.try > 9) {
-        data.try = 0;
-    } else {
-        data.try = x;
-    }
-    console.log(Object.values(data.results))
-    data.results[`${data.try} ${nickName}`] = `${score}`;
-    localStorage.setItem('dataSetting', JSON.stringify(data));
-    
+    let x = [];
 
+    x.push(`${nickName}`);
+    x.push(`${score}`);
+    if (data.results.length <= 9) {
+        data.results.push(x);
+    } else {
+        data.results.shift();
+        data.results.push(x);
+    }
+    
+    localStorage.setItem('dataSetting', JSON.stringify(data));   
 
 }
+
 
 function checkForLose () {  
 

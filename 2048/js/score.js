@@ -6,7 +6,7 @@ const containerMain = document.querySelector('.container-main');
 
 function createScorePage () {
 
-    const data = JSON.parse(localStorage.getItem('dataSetting')).results;
+    const data = JSON.parse(localStorage.getItem('dataSetting'));
 
     containerMain.parentNode.style.marginBottom = 'auto';
 
@@ -19,10 +19,10 @@ function createScorePage () {
     btnBackToMenu.innerText = 'Back to menu'
     wrapperTable.append(btnBackToMenu);
 
-    // const btnResetScore = document.createElement('button');
-    // btnResetScore.classList.add('btn');
-    // btnResetScore.innerText = 'Reset score'
-    // wrapperTable.append(btnResetScore);
+    const btnResetScore = document.createElement('button');
+    btnResetScore.classList.add('btn');
+    btnResetScore.innerText = 'Reset score'
+    wrapperTable.append(btnResetScore);
 
     const table = document.createElement('table');
     table.classList.add('table')
@@ -52,28 +52,28 @@ function createScorePage () {
     ScoreColumn.classList.add('th');
     ScoreColumn.innerText = 'Score';
     rowHead.append(ScoreColumn);
-
-    for (let prop in data ) {
-
-    const rowHead = document.createElement('tr');
-    rowHead.classList.add('tr')
-    tbody.append(rowHead);
-
-    const numberColumn = document.createElement('th');
-    numberColumn.classList.add('th')
-    numberColumn.innerText = `${prop.substring(0,2)}`;
-    rowHead.append(numberColumn);
-
-    const NickNameColumn = document.createElement('th');
-    NickNameColumn.classList.add('th')
-    NickNameColumn.innerText = `${prop.substring(2)}`;
-    rowHead.append(NickNameColumn);
     
-    const ScoreColumn = document.createElement('th');
-    ScoreColumn.classList.add('th');
-    ScoreColumn.innerText = `${data[prop]}`;
-    rowHead.append(ScoreColumn);
-    }
+    data.results.forEach((el, ind) => {
+        const rowHead = document.createElement('tr');
+        rowHead.classList.add('tr')
+        tbody.append(rowHead);
+    
+        const numberColumn = document.createElement('th');
+        numberColumn.classList.add('th')
+        numberColumn.innerText = `${ind + 1}`;
+        rowHead.append(numberColumn);
+        
+        const NickNameColumn = document.createElement('th');
+        NickNameColumn.classList.add('th')
+        NickNameColumn.innerText = `${el[0]}`;
+        rowHead.append(NickNameColumn);
+
+        const ScoreColumn = document.createElement('th');
+        ScoreColumn.classList.add('th');
+        ScoreColumn.innerText = `${el[1]}`;
+        rowHead.append(ScoreColumn);
+
+    });
 
     wrapperTable.addEventListener('click', (event) => {
         if (event.target.innerText === 'Reset score') {
@@ -87,7 +87,6 @@ function createScorePage () {
 
     document.addEventListener('keydown', (event) => {
         if (event.keyCode === 27 && containerMain.childNodes[0].className === 'wrapper-table' && document.body.childNodes[document.body.childNodes.length-1].className != 'modal-wrapper') {
-            console.log('1')
             containerMain.parentNode.style.marginBottom = '';
             containerMain.removeChild(containerMain.childNodes[0]);
             createBtnMenu ();

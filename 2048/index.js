@@ -10,7 +10,7 @@ window.onload = () => {
             'music': 'on'
         },
         'try': 0,
-        'results': {}
+        'results': []
     })
 
     if (!localStorage.getItem('dataSetting')) {
@@ -23,7 +23,7 @@ window.onload = () => {
     createBtnMenu ();
 }
 
-console.log('Сории не успел доделать выборку 10 последних результатов =(')
+
 
 
 
