@@ -2,7 +2,7 @@ import { createBtnMenu } from './js/menu.js';
 import { addAudioClickButton, addMusic } from './js/settings.js';
 
 
- window.onload = () => {
+window.onload = () => {
 
     const data = JSON.stringify({
         'settings': {
