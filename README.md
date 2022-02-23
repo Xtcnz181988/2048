@@ -1,1 +1,1 @@
-https://github.com/Xtcnz181988/Portfolio/2048
+https://xtcnz181988.github.io/Portfolio/2048/
