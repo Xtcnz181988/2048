@@ -1,0 +1,145 @@
+.wrapper-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 40px;
+    animation: btnMenu 1.0s ease-out;
+}
+
+@keyframes btnMenu {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.poster-game {
+    background-image: url('../assets/svg/Alecive-Flatwoken-Apps-2048.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 200px;
+    width: 200px;
+    animation: poster 1.0s ease-out;
+}
+
+@keyframes poster {
+    from {
+        transform: scale(1.5);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1) rotate(1turn);
+        opacity: 1;
+    }
+}
+
+
+.btn {
+    height: 50px;
+    width: 200px;
+    background-color: #292c33;
+    font-family: 'WorkSans-SemiBold';
+    font-size: 20px;
+    color: white;
+    transition: 0.5s;
+    box-shadow: 0 0 10px rgba(41,44,51,0.5);
+}
+
+.btn:hover {
+    transform: scale(1.05);
+    transition: 0.5s;
+}
+
+.btn:active {
+    transform: scale(0.95);
+    transition: 0.5s;
+}
+
+.wrapper-nickname {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    animation: nickName 0.5s ease-out;
+}
+
+@keyframes nickName {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.input-name {
+    height: 50px;
+    width: 250px;
+    background-color: #292c33;
+    font-family: 'WorkSans-SemiBold';
+    text-align: center;
+    font-size: 20px;
+    color: white;
+}
+.input-name::placeholder {
+    font-family: 'WorkSans-SemiBold';
+    font-style: italic;
+    text-align: center;
+    font-size: 20px;
+    color: white;
+}
+
+input:focus {
+    outline: none;
+}
+
+.wrapper-btn-navigation {
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.btn-navigation {
+    width: 50px;
+    height: 50px;
+    margin: 0 50px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    filter: invert(13%) sepia(28%) saturate(308%) hue-rotate(184deg) brightness(93%) contrast(89%);
+    transition: 0.5s;
+}
+
+.btn-navigation:hover {
+    transform: scale(1.1);
+    transition: 0.5s;
+}
+
+.btn-navigation:active {
+    transform: scale(0.9);
+    transition: 0.5s;
+}
+
+.error-text {
+    width: 320px;
+    position: absolute;
+    top: 265px;
+    font-family: 'WorkSans-SemiBold';
+    font-style: italic;
+    text-align: center;
+    font-size: 15px;
+    color: red;
+    animation: errorText 0.5s ease-out;
+}
+
+@keyframes errorText {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
